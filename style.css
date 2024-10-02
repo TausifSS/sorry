@@ -1,0 +1,121 @@
+body {
+    background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Lovely gradient background */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    perspective: 1000px; /* For 3D effect */
+    overflow: hidden; /* Prevents scrollbars from appearing */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d; /* Enable 3D transformations */
+    animation: fadeIn 1s ease forwards; /* Fade-in animation */
+}
+
+.heart-icon {
+    font-size: 100px;
+    animation: heartbeat 1.5s infinite;
+}
+
+h1 {
+    color: #d00000; /* Deep red */
+    margin: 20px 0;
+}
+
+p {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #ffb703; /* Bright yellow */
+    color: #1d3557; /* Dark blue text color */
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 5px; /* Add some spacing between buttons */
+}
+
+button:hover {
+    background-color: #fb8500; /* Darker orange on hover */
+    transform: scale(1.1);
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rain Effect */
+#rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+.drop {
+    position: absolute;
+    background: rgba(255, 0, 0, 0.5); /* Sorry raindrops color */
+    width: 2px;
+    height: 20px;
+    animation: fall linear;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensures the pop-up is on top */
+    font-size: 24px;
+    color: #ff6f61; /* Love color */
+    display: none; /* Hidden by default */
+}
